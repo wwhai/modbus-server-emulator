@@ -38,7 +38,13 @@ func main() {
 		}
 		server.Debug = true
 		//
-		server.Coils = Coils
+		for i := 0; i < 1000; i++ {
+			Coils[i] = byte(i)
+			DiscreteInputs[i] = byte(i)
+			InputRegisters[i] = uint16(i)
+			HoldingRegisters[i] = uint16(i)
+		}
+
 		server.Coils = Coils
 		server.DiscreteInputs = DiscreteInputs
 		server.InputRegisters = InputRegisters
