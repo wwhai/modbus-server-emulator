@@ -10,6 +10,11 @@ import (
 	"github.com/tbrandon/mbserver"
 )
 
+var Coils []byte = make([]byte, 1000)
+var DiscreteInputs = make([]byte, 1000)
+var InputRegisters = make([]uint16, 1000)
+var HoldingRegisters = make([]uint16, 1000)
+
 func main() {
 	channel := make(chan os.Signal, 1)
 	signal.Notify(channel, syscall.SIGINT, syscall.SIGABRT)
@@ -32,12 +37,14 @@ func main() {
 			log.Fatalf("%v\n", err)
 		}
 		server.Debug = true
-		server.Coils = []byte{0, 1}
-		server.DiscreteInputs = []byte{0, 1}
-		server.InputRegisters = []uint16{0, 1}
-		server.HoldingRegisters = []uint16{0, 1}
-
-		log.Println("Modbus Server started")
+		//
+		server.Coils = Coils
+		server.Coils = Coils
+		server.DiscreteInputs = DiscreteInputs
+		server.InputRegisters = InputRegisters
+		server.HoldingRegisters = HoldingRegisters
+		//
+		log.Println("Modbus Server started: 0.0.0.0:1502")
 
 	}(context.Background())
 	defer server.Close()
