@@ -32,12 +32,12 @@ func main() {
 		}
 		server.Debug = true
 		/**/ state_volume := binary.BigEndian.Uint16([]byte{0x02, 0x10}) // 闲暇中，10%容积
-		syn1_syn2 := binary.BigEndian.Uint16([]byte{136, 137})           // SYN = 136+1
-		currentWeight := binary.BigEndian.Uint16([]byte{0x01, 0x10})     // 1.1Kg
-		idCardH := binary.BigEndian.Uint16([]byte{0x01, 0x02})           //
-		idCardL := binary.BigEndian.Uint16([]byte{0x03, 0x04})           // 卡号为1234
-		err1_2 := binary.BigEndian.Uint16([]byte{0x00, 0x00})            // 故障:123
-		err3_ := binary.BigEndian.Uint16([]byte{0x00, 0x00})             // 故障:123
+		/**/ syn1_syn2 := binary.BigEndian.Uint16([]byte{136, 137}) // SYN = 136+1
+		/**/ currentWeight := binary.BigEndian.Uint16([]byte{0x01, 0x10}) // 1.1Kg
+		/**/ idCardH := binary.BigEndian.Uint16([]byte{0x01, 0x02}) //
+		/**/ idCardL := binary.BigEndian.Uint16([]byte{0x03, 0x04}) // 卡号为1234
+		/**/ err1_2 := binary.BigEndian.Uint16([]byte{0x00, 0x00}) // 故障:123
+		/**/ err3_ := binary.BigEndian.Uint16([]byte{0x00, 0x00}) // 故障:123
 
 		server.HoldingRegisters = []uint16{
 			state_volume,
